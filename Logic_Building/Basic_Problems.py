@@ -96,7 +96,7 @@ def find_lowest(n, m):
         # If both the distance are equal then we will return max absolute value
         return higher if abs(higher) > abs(lower) else lower
     
-print(find_lowest(13, 4))
+# print(find_lowest(13, 4))
 
 # Q6. The dice problem
 # You are given a cubic dice with 6 faces. All the indiviual faces have number printed on them the. The number are given in number in range of 1 to 6. like an odinary dice. You will be provided with faces of cube, Your task is to guess the number on opposite cube.
@@ -135,11 +135,8 @@ def check_arithematic(arr, n):
 arr_len = [1, 4, 7, 10]
 number = len(arr_len)
 
-print(check_arithematic(arr_len, number))
-    
-    
-    
-    
+# print(check_arithematic(arr_len, number))
+
 # arr = [1, 4, 7, 10]
 # sample_arr = []
 
@@ -148,3 +145,144 @@ print(check_arithematic(arr_len, number))
 #     sample_arr.append(diff_value)
     
 # print(sample_arr)
+
+# Q6. Write Program for sum of gemotric series 
+# A gemotric series is a series with constant ration between successive terms. The first term of series is denoted by 
+# a and common ration is denoted by r. The series look like this a, ar^2, ar^3, ar^4....
+
+
+def gemotric_series(a, r, n):
+    sum = 0
+    i = 0
+    
+    # while i < n:
+    #     sum += a
+    #     a = a * r
+    #     i = i + 1
+    
+    for _ in range(1, n+1):
+        sum += a
+        a = a * r
+    
+    return sum
+
+# print(gemotric_series(1, 0.5, 10))
+# print(gemotric_series(2, 2, 15))
+
+
+# Q 7. Program to find sample interset 
+# Given principle p, rate r and time t, the task is to calculate simple intereset
+
+def simple_interest(p, r, t):
+    si = (p * r * t)/100
+    
+    return si
+
+# print(simple_interest(10000, 5, 5))
+# print(simple_interest(3000, 7, 1))
+
+# Program to find the area of circle
+# Given the radius r. Find the area of circle. The area of circle should be correct upto 5 decimal places 
+
+import math
+
+def radius_circle(radius):
+    rc = radius * radius * math.pi
+    
+    return round(rc, 5)
+
+# print(radius_circle(5))
+# print(radius_circle(2))
+
+# Write a program to find Sum of digits of numbers
+
+def sum_number(num):
+    digits = [int(digit) for digit in str(num)]
+    sum = 0
+    
+    for i in digits:
+        sum += i
+    return sum
+        
+number = 12345
+# print(sum_number(number))
+# print(sum_number(2468))
+
+# Check for prime numbers
+# You are given number n. Check wheather it is prime or not
+
+def prime_number(num):
+    if num == 0 or num == 1:
+        return False 
+    
+    for i in range(2, num):
+        if num % i == 0:
+            return False
+    
+    return True
+
+    
+# print(prime_number(6))
+# print(prime_number(11))
+
+# Write a program to check is power of another number
+# given two number check if y is power of x or not
+
+def check_power(x, y):
+    if x == 1:
+        return y == 1
+    
+    pow = 1
+    while pow < y:
+        pow = pow * x
+        
+    return pow == x
+
+# print(check_power(1, 20))
+
+# Write a program to calcualte distance between two co-ordinates
+
+
+def distance_between_co(x1, x2, y1, y2):
+    distance = math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+    return round(distance, 4)
+
+x1, x2 = 3, 7
+y1, y2 = 4, 7
+# print(distance_between_co(x1, x2, y1, y2))
+# print(distance_between_co(3, 4, 4, 3))
+
+# Check wheather if triangle is valid or not
+def check_traingle(side1, side2, side3):
+    
+    if (side1 + side1 > side3) and (side2 + side3 > side1) and (side3 + side1 > side2):
+        return True
+    else:
+        return False
+    
+# print(check_traingle(7, 10, 5))
+# print(check_traingle(1, 10, 12))
+
+# Write a factorial of number
+def factorial_num(num):
+    sum = 1
+    i = 1
+    while i < num + 1:
+        sum = sum * i
+        i = i + 1
+    
+    return sum
+
+# print(factorial_num(5))
+# print(factorial_num(4))
+
+# Write a program for square root of integer
+def find_sqrt(num):
+    sqrt = math.sqrt(num)
+    
+    if sqrt % 1 != 0:
+        return math.floor(sqrt)
+    else:
+        return sqrt
+        
+# print(find_sqrt(11))
