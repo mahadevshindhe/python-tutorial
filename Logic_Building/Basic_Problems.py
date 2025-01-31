@@ -286,3 +286,31 @@ def find_sqrt(num):
         return sqrt
         
 # print(find_sqrt(11))
+
+# Pair cube coun
+# given count all "a" and "b" that satisfy the condition a^3 + b^3 = n where (a,b) and (b,a) are consider two different pairs
+
+def pair_cube_count(a, b, n):
+    if ((pow(a, 3) + pow(b, 3)) == n) and ((pow(b, 3) + pow(a, 3)) == n):
+        return True
+    else:
+        return False
+        
+# print(pair_cube_count(1, 2, 9))
+# print(pair_cube_count(1, 3, 28))
+# print(pair_cube_count(3, 2, 22))
+
+def count_cube_pairs(n):
+    count = 0
+    limit = int(n ** (1/3)) + 1
+    
+    for a in range(1, limit):
+        for b in range(1, limit):
+            if a ** 3 + b ** 3 == n:
+                count += 1
+    
+    return count
+
+print(count_cube_pairs(9))
+print(count_cube_pairs(35))
+
