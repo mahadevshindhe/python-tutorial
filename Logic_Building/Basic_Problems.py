@@ -311,6 +311,75 @@ def count_cube_pairs(n):
     
     return count
 
-print(count_cube_pairs(9))
-print(count_cube_pairs(35))
+# print(count_cube_pairs(9))
+# print(count_cube_pairs(35))
 
+# find the greatest common factor 
+
+def find_factor(n):
+    factors = [i for i in range(1, n + 1) if n % i == 0]
+    return factors  
+
+def greatest_common_divisor(a, b):
+    factor_a = find_factor(a)
+    factor_b = find_factor(b)
+    
+    common_factor = list(set(factor_a) & set(factor_b))
+    
+    return max(common_factor)
+    
+# print(greatest_common_divisor(30, 50))
+
+# Program to find LCM of two numbers
+
+# with greatest common divisor
+def lcm_numbers(a, b):
+    lcm = (a * b)/greatest_common_divisor(a, b)
+    
+    return lcm
+
+# print(lcm_numbers(16, 28))
+
+
+def least_common_factor(a, b):
+    multiple_a = [i * a for i in range(1, a + 10)]
+    multiple_b = [i * b for i in range(1, b + 10)]
+    
+    # print(multiple_a)
+    # print(multiple_b)
+    
+    common_factors = set(multiple_a) & set(multiple_b)
+    # print(common_factors)
+    
+    return min(common_factors)
+
+# print(least_common_factor(30, 42))
+
+# Perfect Number
+def perfect_number(n):
+    proper_div = [i for i in range(1, n) if n % i == 0]
+    sum = 0
+    
+    for i in proper_div:
+        sum += i
+    
+    if sum != n:
+        return False
+    else:
+        return True
+    
+
+# print(perfect_number(15))
+# print(perfect_number(6))
+
+# Program to add two fractions
+
+def add_two_numbers(a, b, c, d):
+    if b == d:
+        return f"{(a + c)}/{b}"
+    else:
+        return f'{(a * d) + (c * b)}/{(b * d)}'
+    
+    
+# print(add_two_numbers(1, 5, 3, 5))
+# print(add_two_numbers(1, 2, 3, 7))
