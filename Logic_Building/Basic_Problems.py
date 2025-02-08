@@ -383,3 +383,137 @@ def add_two_numbers(a, b, c, d):
     
 # print(add_two_numbers(1, 5, 3, 5))
 # print(add_two_numbers(1, 2, 3, 7))
+
+# Fizz Buzz given integer n, every positive integer i <= n, the task is to print
+# "FizzBuzz" if i is divisible by 3 and 5
+# "Fizz" if i is divisible by 3
+# "Buzz" if i is divisible by 5
+# "i" as string, if none of condition are true
+
+
+def fizzbuzz(n):
+    store_answer = []
+    
+    i = 1
+    while(i <= n):
+        if (i % 3 == 0 and i % 5 == 0):
+            store_answer.append("FizzBuzz")
+        elif (i % 3 == 0):
+            store_answer.append("Fizz")
+        elif (i % 5 == 0):
+            store_answer.append("Buzz")
+        else:
+            store_answer.append(str(i))
+        
+        i = i + 1
+    
+    return store_answer
+
+# print(fizzbuzz(5))
+# print(fizzbuzz(10))
+# print(fizzbuzz(20))
+
+    
+# Find the day of week for the given date
+def find_day(given_date, given_month, given_year):
+    magic_month_arr = [0, 3, 3, 6, 1, 4, 6, 2, 5, 0, 3, 5]
+    days_week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    century_year_value = 0
+    
+    if(given_year >= 1600 and given_year <= 1699):
+        century_year_value += 6
+    elif(given_year >= 1700 and given_year <= 1799):
+        century_year_value += 4
+    elif(given_year >= 1800 and given_year <= 1899):
+        century_year_value += 2
+    elif(given_year >= 1900 and given_year <= 1999):
+        century_year_value += 0
+    elif(given_year >= 2000 and given_year <= 2099):
+        century_year_value += 6
+        
+    # print("century_year_value", century_year_value)
+    
+    last_two_digit = given_year % 100
+    # print("last_two_digit", last_two_digit)
+    last_two_digit_div = round(last_two_digit / 4)
+    # print("last_two_digit_div", last_two_digit_div)
+
+    magic_month_num = magic_month_arr[given_month - 1]
+    
+    # print("magic_month_num", magic_month_num)
+    
+    sum_of_all = last_two_digit + last_two_digit_div + magic_month_num + century_year_value + given_date
+    # print("sum_of_all", sum_of_all)
+    answer_by_7 = sum_of_all % 7
+    # print("answer_by_7",answer_by_7)
+    
+    day = days_week[answer_by_7]
+        
+    # print("day", day)
+    return day
+        
+
+# print(find_day(14, 9, 1998))
+# print(find_day(12, 8, 2010))
+
+# Count set bits in integer
+# Write an efficient program to count the number of 1s in the binary represnation of integer
+
+
+def bits_in_intg(num):
+    count = 0
+    while (num):
+        count += num & 1
+        num >>= 1
+    return count
+
+# print(bits_in_intg(6))
+
+def countSetBits(num):
+    binary = bin(num)[2:]
+    
+    count = 0
+    
+    for i in binary:
+        if i == "1":
+            count += 1
+    
+    return count
+
+print(countSetBits(13))
+print(countSetBits(6))
+print(countSetBits(1978))
+
+    
+# num = 13    
+# print(int(list(bin(num)[2:])))
+# num_div = 2
+# binary_arr = []
+
+# for i in range(num):
+#     quotient, remainder = divmod(num, num_div)
+    
+#     if quotient == 0:
+#         break
+#     else:
+#         num = quotient
+#         binary_arr.append(remainder)
+#         print("quo:", quotient)
+#         print("rem:", remainder)
+        
+
+
+# print("binary arr:", binary_arr)
+# print("num:", num)
+
+# count = 0
+
+# for i in binary_arr:
+#     if i == 1:
+#         count += 1
+
+# print(count)
+# quotient, remainder = divmod(a, b)
+# print(quotient, remainder)
+# a = quotient
+# print(a)
