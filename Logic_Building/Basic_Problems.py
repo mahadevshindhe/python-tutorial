@@ -480,9 +480,9 @@ def countSetBits(num):
     
     return count
 
-print(countSetBits(13))
-print(countSetBits(6))
-print(countSetBits(1978))
+# print(countSetBits(13))
+# print(countSetBits(6))
+# print(countSetBits(1978))
 
     
 # num = 13    
@@ -517,3 +517,65 @@ print(countSetBits(1978))
 # print(quotient, remainder)
 # a = quotient
 # print(a)
+
+# Nth fibonacci series
+
+def nth_fibonacci(n):
+    if n <= 1:
+        return n
+    
+    return nth_fibonacci(n - 1) + nth_fibonacci(n - 2)
+
+
+# print(nth_fibonacci(3))
+
+def nth_fibonacci_until(n, memo):
+    if n <= 0:
+        return n
+    
+    if memo[n] != -1:
+        return memo[n]
+    
+    memo[n] = nth_fibonacci_until(n - 1, memo) + nth_fibonacci_until(n - 2, memo)
+    
+    return memo[n]
+
+
+def nth_fibona(n):
+    
+    # Create a memoization table and initialize with -1
+    memo = [-1] * (n + 1)
+    
+    return nth_fibonacci_until(n, memo)
+
+# print(nth_fibona(5))
+
+def nth_fibonacci_series(n):
+    if n <= 1:
+        return n
+    
+    dp = [0] * (n + 1)
+    
+    dp[0] = 0
+    dp[1] = 1
+    
+    for i in range(2, n + 1):
+        dp[i] = dp[i - 1] + dp[i - 2]
+        
+    return dp[-1]
+
+# print(nth_fibonacci_series(5))
+
+def substractOne(x):
+    m = 1
+    
+    while((m & x ) == False):
+        x = x ^ m
+        m = m << 1
+        
+    x = x ^ m
+    return x
+
+
+# print(substractOne(10))
+
